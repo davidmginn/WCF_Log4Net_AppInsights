@@ -1,10 +1,15 @@
-﻿using System;
+﻿using log4net.Layout;
+using log4net.Repository.Hierarchy;
+using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using log4net.Core;
+using Microsoft.ApplicationInsights.Log4NetAppender;
 
 namespace WcfService1
 {
@@ -13,7 +18,8 @@ namespace WcfService1
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            log4net.Config.XmlConfigurator.Configure();
+            //log4net.Config.XmlConfigurator.Configure();
+            Logger.Setup();
         }
 
         protected void Session_Start(object sender, EventArgs e)
